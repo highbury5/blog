@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+    <div class="col-md-8">
+        <div class="row">
+        #foreach($article in $page.getContents())
+        <div class=".panel .panel-default box">
+            <h1><a href="/article/${article.id}">$article.title</a></h1>
+            <span>$article.describes </span>
+            <hr />
+            <div class="articleFoot">
+                <span>${categoryMap.get($article.category)}</span>
+                <span>${dateUtil.getDate($article.createdDate)}</span>
+            </div>
+        </div>
+        #end
+        </div>
+
+        <div class="row">
+            <!--div class="col-md-3"></div-->
+            <div class="col-md-6 col-md-offset-3">
+            <div class="btn-group pagenum " role="group" aria-label="...">
+             #set($prePage=$$$page.currentPage - 1 )
+             #set($nextPage=$$$page.currentPage + 1)
+             #if($prePage > 0)
+                <a href="/archive/page?pageNum=${prePage}" class="btn btn-default" role="button">&laquo;</a>
+             #else
+                <a href="" class="btn btn-default" role="button"><<</a>
+             #end
+            <a href="" class="btn btn-default" role="button">
+             当前页 $page.currentPage / 总页数$page.totalPage
+            </a>
+            #if($page.currentPage < $page.totalPage)
+                <a href="/archive/page?pageNum=${nextPage}" class="btn btn-default" role="button"> &raquo;</a>
+            #else
+                <a href="" class="btn btn-default" role="button">>></a>
+            #end
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

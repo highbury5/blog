@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.highbury5.blog.mapper.CategoryDao">
+
+    <select id="listCategory" resultType="category" >
+        select id,name,image,describes,article_num from category
+    </select>
+
+    <insert id="insert" parameterType="category" useGeneratedKeys="true" keyProperty="id" >
+        insert into category (name,image,describes,article_num)
+        values ( #{name},#{image},#{describes},#{articleNum})
+    </insert>
+
+</mapper>

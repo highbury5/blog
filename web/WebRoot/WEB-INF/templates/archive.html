@@ -1,0 +1,11 @@
+#parse("header.html")
+<div class="container">
+<div class=".panel .panel-default box col-md-12">
+<h1>所有文章</h1>
+<hr>
+#foreach($article in $articles)
+<li><a href="/article/$!{article.id}">$!{article.title}</a></li>
+#end
+</div>
+</div>
+#parse("footer.html")

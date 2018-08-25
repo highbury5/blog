@@ -1,0 +1,39 @@
+#parse("header.html")
+<div class="container">
+
+<form action="/article/add" method="post">
+    <div class="article-input">
+    <lable for="inputTitle" class="sr-only">标题</lable>
+    <input id="title" name="title" class="form-control" placeholder="请输入标题"/>
+    <lable for="inputDescribes" class="sr-only">概要</lable>
+    <input id="describes" name="describes" class="form-control" placeholder="请输入概要"/>
+    <select name="category" class="form-control" >
+        <option value="" selected="true" disabled="true">请选择分类</option>>
+        #foreach($category in $categorys)
+        <option value="${category.getId()}" >${category.getName()}</option>
+        #end
+    </select>
+    </div>
+
+    <div id="test-editormd">
+        <textarea name="content" style="display:none;"></textarea>
+    </div>
+    <div class="article-input"><button type="submit" class="btn btn-primary">发表文章</button></div>
+</form>
+</div>
+
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/editormd.min.js"></script>
+<script type="text/javascript">
+    var testEditor;
+    $(function() {
+        testEditor = editormd("test-editormd", {
+            width   : "90%",
+            height  : 640,
+            syncScrolling : "single",
+            path    : "/static/lib/"
+        });
+    });
+</script>
+</body>
+#parse("footer.html")

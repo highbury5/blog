@@ -1,0 +1,614 @@
+08-20 09:37:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+select id,name,password,role from user where name = ? [42102-176]
+08-20 09:37:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+select id,name,password,role from user where name = ? [42102-176]
+08-20 09:45:28 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Not enough rights for object "PUBLIC.USER"; SQL statement:
+CREATE TABLE `user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL DEFAULT '',
+  `password` varchar(128) NOT NULL DEFAULT '',
+  `role` varchar(32) NOT NULL DEFAULT 'user',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) [90096-171]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.engine.User.checkRight(User.java:98)
+	at org.h2.table.TableFilter.<init>(TableFilter.java:122)
+	at org.h2.table.Column.prepareExpression(Column.java:388)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:161)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:75)
+	at org.h2.command.Command.executeUpdate(Command.java:230)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:194)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.execute(JDBCPreparedStatementImpl.java:98)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.executeStatement(JDBCPreparedStatementImpl.java:56)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:290)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.extractData(SQLQueryJob.java:409)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$DataContainer.readData(SQLEditor.java:937)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetDataPumpJob.run(ResultSetDataPumpJob.java:43)
+	at org.jkiss.dbeaver.runtime.AbstractJob.run(AbstractJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+08-20 09:45:37 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Not enough rights for object "PUBLIC.USER"; SQL statement:
+CREATE TABLE `user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL DEFAULT '',
+  `password` varchar(128) NOT NULL DEFAULT '',
+  `role` varchar(32) NOT NULL DEFAULT 'user',
+  PRIMARY KEY (`id`),
+  --UNIQUE KEY `name` (`name`)
+) [90096-171]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.engine.User.checkRight(User.java:98)
+	at org.h2.table.TableFilter.<init>(TableFilter.java:122)
+	at org.h2.table.Column.prepareExpression(Column.java:388)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:161)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:75)
+	at org.h2.command.Command.executeUpdate(Command.java:230)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:194)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.execute(JDBCPreparedStatementImpl.java:98)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.executeStatement(JDBCPreparedStatementImpl.java:56)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:290)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.extractData(SQLQueryJob.java:409)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$DataContainer.readData(SQLEditor.java:937)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetDataPumpJob.run(ResultSetDataPumpJob.java:43)
+	at org.jkiss.dbeaver.runtime.AbstractJob.run(AbstractJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+08-20 09:46:35 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "alert user xiao admin {true}" [42000-171]
+08-20 09:46:56 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "alter user xiao admin {true}" [42000-171]
+08-20 09:47:19 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER USER XIAO ADMIN    RUE[*]   "; expected "TRUE, FALSE"; SQL statement:
+alter user xiao admin    rue   [42001-171]
+08-20 09:47:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER USER XIAO ADMIN    RUE[*]   "; expected "TRUE, FALSE"; SQL statement:
+alter user xiao admin    RUE   [42001-171]
+08-20 09:47:45 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Admin rights are required for this operation; SQL statement:
+alter user xiao admin TRUE [90040-171]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.engine.User.checkAdmin(User.java:199)
+	at org.h2.command.ddl.AlterUser.update(AlterUser.java:100)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:75)
+	at org.h2.command.Command.executeUpdate(Command.java:230)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:194)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.execute(JDBCPreparedStatementImpl.java:98)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.executeStatement(JDBCPreparedStatementImpl.java:56)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:290)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.extractData(SQLQueryJob.java:409)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$DataContainer.readData(SQLEditor.java:937)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetDataPumpJob.run(ResultSetDataPumpJob.java:43)
+	at org.jkiss.dbeaver.runtime.AbstractJob.run(AbstractJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+08-20 09:48:03 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Admin rights are required for this operation; SQL statement:
+alter user xiao admin TRUE [90040-171]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.engine.User.checkAdmin(User.java:199)
+	at org.h2.command.ddl.AlterUser.update(AlterUser.java:100)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:75)
+	at org.h2.command.Command.executeUpdate(Command.java:230)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:194)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.execute(JDBCPreparedStatementImpl.java:98)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.executeStatement(JDBCPreparedStatementImpl.java:56)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:290)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.extractData(SQLQueryJob.java:409)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$DataContainer.readData(SQLEditor.java:937)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetDataPumpJob.run(ResultSetDataPumpJob.java:43)
+	at org.jkiss.dbeaver.runtime.AbstractJob.run(AbstractJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+08-20 09:48:47 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Admin rights are required for this operation; SQL statement:
+alter user xiao admin TRUE [90040-171]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.engine.User.checkAdmin(User.java:199)
+	at org.h2.command.ddl.AlterUser.update(AlterUser.java:100)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:75)
+	at org.h2.command.Command.executeUpdate(Command.java:230)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:194)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.execute(JDBCPreparedStatementImpl.java:98)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.executeStatement(JDBCPreparedStatementImpl.java:56)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:290)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.extractData(SQLQueryJob.java:409)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$DataContainer.readData(SQLEditor.java:937)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetDataPumpJob.run(ResultSetDataPumpJob.java:43)
+	at org.jkiss.dbeaver.runtime.AbstractJob.run(AbstractJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+08-20 09:49:01 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: User "XIAO" already exists; SQL statement:
+create user xiao   Password '123456'   [90033-171]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.command.ddl.CreateUser.update(CreateUser.java:68)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:75)
+	at org.h2.command.Command.executeUpdate(Command.java:230)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:194)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.execute(JDBCPreparedStatementImpl.java:98)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.executeStatement(JDBCPreparedStatementImpl.java:56)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:290)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.extractData(SQLQueryJob.java:409)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$DataContainer.readData(SQLEditor.java:937)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetDataPumpJob.run(ResultSetDataPumpJob.java:43)
+	at org.jkiss.dbeaver.runtime.AbstractJob.run(AbstractJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+08-20 09:49:49 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Constraint "NAME" already exists; SQL statement:
+CREATE TABLE `category` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(64) NOT NULL,
+  `image` VARCHAR(255) NOT NULL,
+  `describes` VARCHAR(255) NOT NULL,
+  `article_num` INT  NOT NULL,
+  PRIMARY KEY(`id`),
+  UNIQUE KEY `name` (`name`)
+) [90045-171]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:89)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:68)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:168)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:75)
+	at org.h2.command.Command.executeUpdate(Command.java:230)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:194)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.execute(JDBCPreparedStatementImpl.java:98)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCPreparedStatementImpl.executeStatement(JDBCPreparedStatementImpl.java:56)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:290)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.extractData(SQLQueryJob.java:409)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$DataContainer.readData(SQLEditor.java:937)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetDataPumpJob.run(ResultSetDataPumpJob.java:43)
+	at org.jkiss.dbeaver.runtime.AbstractJob.run(AbstractJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+08-20 10:11:38 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""CATEGORY"" (
+  ""ID"" INT NOT NULL AUTO_INCREMENT IDENTITY[*],
+  ""NAME"" VARCHAR(64) NOT NULL,
+  ""IMAGE"" VARCHAR(255) NOT NULL,
+  ""DESCRIBES"" VARCHAR(255) NOT NULL,
+  ""ARTICLE_NUM"" INT  NOT NULL,
+  PRIMARY KEY(""ID""),
+  UNIQUE KEY ""NAME"" (""NAME"")
+) "; expected "(, NOT, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE `category` (
+  `id` INT NOT NULL AUTO_INCREMENT identity,
+  `name` VARCHAR(64) NOT NULL,
+  `image` VARCHAR(255) NOT NULL,
+  `describes` VARCHAR(255) NOT NULL,
+  `article_num` INT  NOT NULL,
+  PRIMARY KEY(`id`),
+  UNIQUE KEY `name` (`name`)
+) [42001-171]
+08-20 10:11:45 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""CATEGORY"" (
+  ""ID"" INT NOT NULL AUTO_INCREMENT IDENTITY[*],
+  ""NAME"" VARCHAR(64) NOT NULL,
+  ""IMAGE"" VARCHAR(255) NOT NULL,
+  ""DESCRIBES"" VARCHAR(255) NOT NULL,
+  ""ARTICLE_NUM"" INT  NOT NULL,
+  PRIMARY KEY(""ID""),
+                              
+) "; expected "(, NOT, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE `category` (
+  `id` INT NOT NULL AUTO_INCREMENT identity,
+  `name` VARCHAR(64) NOT NULL,
+  `image` VARCHAR(255) NOT NULL,
+  `describes` VARCHAR(255) NOT NULL,
+  `article_num` INT  NOT NULL,
+  PRIMARY KEY(`id`),
+  --UNIQUE KEY `name` (`name`)
+) [42001-171]
+08-20 10:13:32 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Column "aa" not found; SQL statement:
+insert into category (name,image,describes,article_num) values("aa","aa","aa",1) [42122-171]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:141)
+	at org.h2.command.dml.Insert.prepare(Insert.java:231)
+	at org.h2.command.Parser.prepareCommand(Parser.java:218)
+	at org.h2.engine.Session.prepareLocal(Session.java:417)
+	at org.h2.engine.Session.prepareCommand(Session.java:366)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:74)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:629)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCConnectionImpl.prepareStatement(JDBCConnectionImpl.java:326)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCConnectionImpl.prepareStatement(JDBCConnectionImpl.java:150)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCConnectionImpl.prepareStatement(JDBCConnectionImpl.java:1)
+	at org.jkiss.dbeaver.model.DBUtils.prepareStatement(DBUtils.java:580)
+	at org.jkiss.dbeaver.model.DBUtils.prepareStatement(DBUtils.java:520)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:272)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.extractData(SQLQueryJob.java:409)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$DataContainer.readData(SQLEditor.java:937)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetDataPumpJob.run(ResultSetDataPumpJob.java:43)
+	at org.jkiss.dbeaver.runtime.AbstractJob.run(AbstractJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+08-20 10:47:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "TITLE" not found; SQL statement:
+insert into category (title,describes,content,created_date,comment_count,category)
+        values ( ?,?,?,?,?,?) [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.table.Table.getColumn(Table.java:637)
+	at org.h2.command.Parser.parseColumn(Parser.java:849)
+	at org.h2.command.Parser.parseColumnList(Parser.java:833)
+	at org.h2.command.Parser.parseInsert(Parser.java:1033)
+	at org.h2.command.Parser.parsePrepared(Parser.java:402)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1122)
+	at org.apache.commons.dbcp.DelegatingConnection.prepareStatement(DelegatingConnection.java:508)
+	at org.apache.commons.dbcp.PoolingDataSource$PoolGuardConnectionWrapper.prepareStatement(PoolingDataSource.java:400)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.ibatis.logging.jdbc.ConnectionLogger.invoke(ConnectionLogger.java:50)
+	at com.sun.proxy.$Proxy16.prepareStatement(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.instantiateStatement(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.BaseStatementHandler.prepare(BaseStatementHandler.java:82)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.prepare(RoutingStatementHandler.java:54)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:70)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:44)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:358)
+	at com.sun.proxy.$Proxy8.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:240)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43)
+	at com.sun.proxy.$Proxy9.insert(Unknown Source)
+	at com.highbury5.blog.service.ArticleService.articleAdd(ArticleService.java:34)
+	at com.highbury5.blog.service.ArticleService$$FastClassBySpringCGLIB$$3b0c342.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:701)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:91)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.highbury5.blog.service.ArticleService$$EnhancerBySpringCGLIB$$3b10b42c.articleAdd(<generated>)
+	at com.highbury5.blog.controller.ArticleController.ArticleAdd(ArticleController.java:40)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:743)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:672)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:82)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:933)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:867)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:951)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:853)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:827)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:427)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:370)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:984)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1045)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:861)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:231)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:745)
+08-20 10:47:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "TITLE" not found; SQL statement:
+insert into category (title,describes,content,created_date,comment_count,category)
+        values ( ?,?,?,?,?,?) [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.table.Table.getColumn(Table.java:637)
+	at org.h2.command.Parser.parseColumn(Parser.java:849)
+	at org.h2.command.Parser.parseColumnList(Parser.java:833)
+	at org.h2.command.Parser.parseInsert(Parser.java:1033)
+	at org.h2.command.Parser.parsePrepared(Parser.java:402)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1122)
+	at org.apache.commons.dbcp.DelegatingConnection.prepareStatement(DelegatingConnection.java:508)
+	at org.apache.commons.dbcp.PoolingDataSource$PoolGuardConnectionWrapper.prepareStatement(PoolingDataSource.java:400)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.ibatis.logging.jdbc.ConnectionLogger.invoke(ConnectionLogger.java:50)
+	at com.sun.proxy.$Proxy16.prepareStatement(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.instantiateStatement(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.BaseStatementHandler.prepare(BaseStatementHandler.java:82)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.prepare(RoutingStatementHandler.java:54)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:70)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:44)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:100)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:75)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:137)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:358)
+	at com.sun.proxy.$Proxy8.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:240)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:46)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:43)
+	at com.sun.proxy.$Proxy9.insert(Unknown Source)
+	at com.highbury5.blog.service.ArticleService.articleAdd(ArticleService.java:34)
+	at com.highbury5.blog.service.ArticleService$$FastClassBySpringCGLIB$$3b0c342.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:701)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:96)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:260)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:91)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:633)
+	at com.highbury5.blog.service.ArticleService$$EnhancerBySpringCGLIB$$3b10b42c.articleAdd(<generated>)
+	at com.highbury5.blog.controller.ArticleController.ArticleAdd(ArticleController.java:40)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:743)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:672)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:82)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:933)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:867)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:951)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:853)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:827)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:427)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:370)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:984)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1045)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:861)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:231)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:745)
+08-20 11:05:45 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "(2, 3)"; SQL statement:
+select * from article limit (2,3) [22018-171]
+08-24 16:28:35 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-171]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1388)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1366)
+	at org.h2.jdbc.JdbcConnection.getAutoCommit(JdbcConnection.java:424)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCConnectionImpl.getAutoCommit(JDBCConnectionImpl.java:208)
+	at org.jkiss.dbeaver.model.impl.jdbc.api.JDBCConnectionImpl$TransactionManager.isAutoCommit(JDBCConnectionImpl.java:588)
+	at org.jkiss.dbeaver.ui.actions.DataSourcePropertyTester.test(DataSourcePropertyTester.java:57)
+	at org.eclipse.core.internal.expressions.Property.test(Property.java:58)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:99)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AdaptExpression.evaluate(AdaptExpression.java:91)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.WithExpression.evaluate(WithExpression.java:72)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.setEnabled(HandlerProxy.java:224)
+	at org.eclipse.core.commands.Command.setEnabled(Command.java:857)
+	at org.eclipse.ui.menus.CommandContributionItem.isEnabled(CommandContributionItem.java:968)
+	at org.eclipse.ui.menus.CommandContributionItem.updateToolItem(CommandContributionItem.java:661)
+	at org.eclipse.ui.menus.CommandContributionItem.update(CommandContributionItem.java:578)
+	at org.eclipse.ui.menus.CommandContributionItem.update(CommandContributionItem.java:565)
+	at org.eclipse.ui.menus.CommandContributionItem$1.bindingManagerChanged(CommandContributionItem.java:989)
+	at org.eclipse.jface.bindings.BindingManager.fireBindingManagerChanged(BindingManager.java:900)
+	at org.eclipse.jface.bindings.BindingManager.setActiveBindings(BindingManager.java:2176)
+	at org.eclipse.jface.bindings.BindingManager.recomputeBindings(BindingManager.java:1742)
+	at org.eclipse.jface.bindings.BindingManager.contextManagerChanged(BindingManager.java:689)
+	at org.eclipse.core.commands.contexts.ContextManager.fireContextManagerChanged(ContextManager.java:165)
+	at org.eclipse.core.commands.contexts.ContextManager.setEventCaching(ContextManager.java:324)
+	at org.eclipse.core.commands.contexts.ContextManager.deferUpdates(ContextManager.java:83)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.sourceChanged(ContextAuthority.java:673)
+	at org.eclipse.ui.internal.services.ExpressionAuthority.sourceChanged(ExpressionAuthority.java:310)
+	at org.eclipse.ui.internal.services.ExpressionAuthority.sourceChanged(ExpressionAuthority.java:290)
+	at org.eclipse.ui.AbstractSourceProvider.fireSourceChanged(AbstractSourceProvider.java:99)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.access$10(WorkbenchSourceProvider.java:1)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider$6.handleEvent(WorkbenchSourceProvider.java:775)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1253)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1052)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1077)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1058)
+	at org.eclipse.swt.widgets.Decorations.WM_ACTIVATE(Decorations.java:1635)
+	at org.eclipse.swt.widgets.Shell.WM_ACTIVATE(Shell.java:2114)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4157)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:341)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1598)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2038)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4873)
+	at org.eclipse.swt.internal.win32.OS.BringWindowToTop(Native Method)
+	at org.eclipse.swt.widgets.Decorations.bringToTop(Decorations.java:230)
+	at org.eclipse.swt.widgets.Shell.open(Shell.java:1194)
+	at org.eclipse.jface.window.Window.open(Window.java:797)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.open(ProgressMonitorDialog.java:678)
+	at org.eclipse.ui.internal.progress.ProgressMonitorFocusJobDialog.open(ProgressMonitorFocusJobDialog.java:382)
+	at org.eclipse.ui.internal.progress.ProgressMonitorFocusJobDialog$14.runInUIThread(ProgressMonitorFocusJobDialog.java:458)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4041)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3660)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2629)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2593)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2427)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:670)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:663)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.jkiss.dbeaver.core.DBeaverApplication.start(DBeaverApplication.java:65)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:369)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:619)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:574)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1407)
+08-24 17:36:20 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE 'tag'[*] (
+'id' INT NOT NULL AUTO_INCREMENT,
+'name' VARCHAR(50) NOT NULL,
+'count' INT NOT NULL DEFAULT 0,
+PRIMARY KEY ('id')
+)"; expected "identifier"; SQL statement:
+CREATE TABLE 'tag' (
+'id' INT NOT NULL AUTO_INCREMENT,
+'name' VARCHAR(50) NOT NULL,
+'count' INT NOT NULL DEFAULT 0,
+PRIMARY KEY ('id')
+) [42001-171]
+08-24 17:36:28 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TAG" not found; SQL statement:
+select * from tag [42102-171]
+08-24 17:36:33 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TAG" not found; SQL statement:
+select * from tag [42102-171]
+08-24 17:36:37 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE 'tag'[*] (
+'id' INT NOT NULL AUTO_INCREMENT,
+'name' VARCHAR(50) NOT NULL,
+'count' INT NOT NULL DEFAULT 0,
+PRIMARY KEY ('id')
+)"; expected "identifier"; SQL statement:
+CREATE TABLE 'tag' (
+'id' INT NOT NULL AUTO_INCREMENT,
+'name' VARCHAR(50) NOT NULL,
+'count' INT NOT NULL DEFAULT 0,
+PRIMARY KEY ('id')
+) [42001-171]
+08-24 17:37:18 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""TAG"" (
+""ID"" INT NOT NULL AUTO_INCREMENT,
+""NAME"" VARCHAR(50) NOT NULL,
+""COUNT"" INT NOT NULL DEFAULT 0,
+PRIMARY KEY ('id'[*])
+) "; expected "identifier"; SQL statement:
+CREATE TABLE `tag` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`name` VARCHAR(50) NOT NULL,
+`count` INT NOT NULL DEFAULT 0,
+PRIMARY KEY ('id')
+) [42001-171]
+08-24 17:38:24 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""TAG"" (
+""ID"" INT NOT NULL AUTO_INCREMENT,
+""NAME"" VARCHAR(50) NOT NULL,
+""COUNT"" INT NOT NULL DEFAULT 0,
+PRIMARY KEY ('id'[*])
+) "; expected "identifier"; SQL statement:
+CREATE TABLE `tag` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`name` VARCHAR(50) NOT NULL,
+`count` INT NOT NULL DEFAULT 0,
+PRIMARY KEY ('id')
+) [42001-171]
+08-24 17:38:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""TAG"" (
+""ID"" INT NOT NULL AUTO_INCREMENT IDENTITY[*],
+""NAME"" VARCHAR(50) NOT NULL,
+""COUNT"" INT NOT NULL DEFAULT 0,
+PRIMARY KEY ('id')
+) "; expected "(, NOT, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE `tag` (
+`id` INT NOT NULL AUTO_INCREMENT identity,
+`name` VARCHAR(50) NOT NULL,
+`count` INT NOT NULL DEFAULT 0,
+PRIMARY KEY ('id')
+) [42001-171]
+08-24 17:39:15 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""TAG"" (
+""ID"" INT NOT NULL AUTO_INCREMENT IDENTITY[*],
+""NAME"" VARCHAR(50) NOT NULL,
+""COUNT"" INT NOT NULL DEFAULT 0,
+PRIMARY KEY (""ID"")
+) "; expected "(, NOT, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE `tag` (
+`id` INT NOT NULL AUTO_INCREMENT identity,
+`name` VARCHAR(50) NOT NULL,
+`count` INT NOT NULL DEFAULT 0,
+PRIMARY KEY (`id`)
+) [42001-171]

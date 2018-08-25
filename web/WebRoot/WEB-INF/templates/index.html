@@ -1,0 +1,12 @@
+#parse("header.html")
+<h2 class="subtitle">
+    #if($emsg)
+    $!{emsg}
+    #elseif($smsg)
+    $!{smsg}.
+    #end
+</h2>
+#parse("pagelist.html")
+#parse("footer.html")
+
+

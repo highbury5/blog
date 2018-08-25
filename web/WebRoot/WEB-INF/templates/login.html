@@ -1,0 +1,21 @@
+#parse("header.html")
+<div class="container">
+
+<form name="regloginform" method="post" class="center-box">
+    <h1 class="subtitle">
+        #if($emsg)
+        $!{emsg}
+        #else
+        #end
+    </h1>
+    <div class="input-group-lg box-input" >
+        <lable for="inputUsername" class="sr-only">用户名</lable>
+        <input type="text" name="username" class="form-control" placeholder="用户名"/>
+        <lable for="inputPassword" class="sr-only">密码</lable>
+        <input type="password" name="password" class="form-control" placeholder="密码" />
+    </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="form=document.getElementById('regloginform');form.action='/login'">登录</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="form=document.getElementById('regloginform');form.action='/register'">注册</button>
+</form>
+</div>
+#parse("footer.html")

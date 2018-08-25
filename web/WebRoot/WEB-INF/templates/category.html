@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+#parse("header.html")
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>category</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+     <h2>分类详情</h2>
+    <table class="table table-hover">
+        <thead><tr><th>名称</th><th>描述</th></tr></thead>
+        <tbody>
+        #foreach($category in $categorys)
+        <tr><td>$category.name</td><td>$category.describes</td></tr>
+        #end
+        </tbody>
+    </table>
+        </div>
+        <div class="box ">
+            <div class="center-box">
+
+            <form method="post" action="/category/add">
+                <h2>添加分类</h2>
+                <div class="box-input">
+                <lable for="inputName" class="sr-only">名称</lable>
+                <input id="name" name="name" class="form-control" placeholder="名称"/>
+                <lable for="inputDescribes" class="sr-only">描述</lable>
+                <input id="describes" name="describes" class="form-control" placeholder="描述"/>
+                </div>
+                <button name="submit" type="submit" class="btn btn-primary">提交</button>
+            </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+#parse("footer.html")
+
