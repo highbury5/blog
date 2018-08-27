@@ -23,6 +23,12 @@ public class ArticleService {
     @Autowired
     ArticleDao articleDao;
 
+    public int articleAdd(Article article){
+        articleDao.insert(article);
+        return article.getId();
+    }
+
+    /*
     public Map<String,String> articleAdd(Article article){
         Map<String,String> map = new HashMap<String,String>();
         if(StringUtils.isBlank(article.getTitle())){
@@ -34,7 +40,7 @@ public class ArticleService {
         articleDao.insert(article);
         map.put("smsg","添加成功");
         return map;
-    }
+    }*/
 
     public Article articleDetail(int id) {
         return articleDao.findOne(id);

@@ -23,6 +23,10 @@ public class ArchiveService {
         return articleDao.listArticle();
     }
 
+    public List<Article> lsitArticleByTag(int tagId){
+       return articleDao.listArticleByTag(tagId);
+    }
+
     public Page listArticle(int pagenum){
         //Pageable pageable= new PageRequest(page,3);
         int index = ( pagenum - 1 )  * Constants.PAGE_SIZE;
@@ -34,4 +38,5 @@ public class ArchiveService {
         Page page = new Page(list,totalPage,pagenum);
         return page;
     }
+
 }

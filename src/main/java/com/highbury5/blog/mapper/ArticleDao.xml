@@ -13,13 +13,21 @@
         select <include refid="all_column" /> from article
     </select>
 
+    <select id="listArticleByTag" resultType="article" parameterType="int">
+        select <include refid="all_column" /> from article where id in (
+            select article_id from article_tag where tag_id = #{tagId}
+        )
+    </select>
+
     <select id="findOne" resultType="article" parameterType="Integer" >
         select <include refid="all_column" /> from article where id = #{id}
     </select>
 
-    <insert id="insert" parameterType="article" useGeneratedKeys="true" keyProperty="id" >
+    <insert id="insert"  parameterType="article" useGeneratedKeys="true" keyProperty="id" >
         insert into article (title,describes,content,created_date,comment_count,category)
         values ( #{title},#{describes},#{content},#{createdDate},#{commentCount},#{category})
     </insert>
+
+
 
 </mapper>

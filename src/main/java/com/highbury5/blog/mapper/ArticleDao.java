@@ -15,6 +15,8 @@ public interface ArticleDao {
 
     public List<Article> listArticle();
 
+    public List<Article> listArticleByTag(int tagId);
+
     public List<Article> listArticle(PageRowBounds pageRowBounds);
 
     public Article findOne(int id);

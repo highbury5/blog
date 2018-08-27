@@ -1,0 +1,67 @@
+#parse("header.html")
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/jquery.svg3dtagcloud.min.js"></script>
+
+
+<div class="container">
+    <div class="box ">
+        <h1>标签</h1>
+        <hr />
+        <div class="col-md-offset-3">
+            <div id='holder'></div>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+
+        //--------------------------3D 词云图 -----------------
+        $( document ).ready( function() {
+
+            var entries = [
+                #foreach($tag in $tags)
+                    { label: '${tag.name}',fontColor:'red',fontSize:28, url:'/tag/${tag.id}', target: '_button' },
+                #end
+
+            ];
+
+            var settings = {
+                entries: entries,//数据
+                width: 480,//宽度
+                height: 480,//高度
+                radius: '65%', //标签云的半径
+                radiusMin: 75, //标签云的最小半径
+                bgDraw: false,//是否显示背景
+                bgColor: '#AFEEEE',//背景颜色
+                opacityOver: 1.00, //鼠标滑过标签时的标签透明度
+                opacityOut: 0.05,  //鼠标离开标签时的标签透明度
+                opacitySpeed: 6,   //标签透明度过渡速度
+                fov: 800,
+                speed: 0.3,//旋转的速度
+                fontFamily: 'Oswald, Arial, sans-serif',
+                fontSize: '18',//默认字体大小
+                fontColor: '#8B4513',//默认字体颜色
+                fontWeight: 'normal',//bold
+                fontStyle: 'normal',//italic
+                fontStretch: 'normal',//wider, narrower, ultra-condensed, extra-condensed, condensed, semi-condensed, semi-expanded, expanded, extra-expanded, ultra-expanded
+                fontToUpperCase: true,
+                tooltipFontFamily: 'Oswald, Arial, sans-serif',
+                tooltipFontSize: '11',
+                tooltipFontColor: 'red',
+                tooltipFontWeight: 'normal',//bold
+                tooltipFontStyle: 'normal',//italic
+                tooltipFontStretch: 'normal',//wider, narrower, ultra-condensed, extra-condensed, condensed, semi-condensed, semi-expanded, expanded, extra-expanded, ultra-expanded
+                tooltipFontToUpperCase: false,
+                tooltipTextAnchor: 'left',
+                tooltipDiffX: 0,
+                tooltipDiffY: 10
+
+            };
+
+            //var svg3DTagCloud = new SVG3DTagCloud( document.getElementById( 'holder'  ), settings );
+            $( '#holder' ).svg3DTagCloud( settings );
+
+        } );
+    </script>
+
+#parse("footer.html")
