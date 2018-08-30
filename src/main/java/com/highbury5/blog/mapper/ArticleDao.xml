@@ -10,7 +10,7 @@
 
     <!--多条记录自动返回List<Article>-->
     <select id="listArticle" resultType="article" >
-        select <include refid="all_column" /> from article
+        select <include refid="all_column" /> from article order by id desc
     </select>
 
     <select id="listArticleByTag" resultType="article" parameterType="int">
