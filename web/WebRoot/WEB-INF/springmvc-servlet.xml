@@ -70,5 +70,9 @@
             <mvc:mapping path="/toCreate"/>
             <bean class="com.highbury5.blog.interceptor.PassportInterceptor" />
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/article/detail/*" />
+            <bean class="com.highbury5.blog.interceptor.ArticleCountInterceptor" />
+        </mvc:interceptor>
     </mvc:interceptors>
 </beans>

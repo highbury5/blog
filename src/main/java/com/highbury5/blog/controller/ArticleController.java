@@ -5,6 +5,7 @@ import com.highbury5.blog.model.Tag;
 import com.highbury5.blog.service.ArticleService;
 import com.highbury5.blog.service.TagService;
 import com.highbury5.blog.util.BlogUtil;
+import com.highbury5.blog.util.RedisUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,7 +66,7 @@ public class ArticleController {
         return "forward:/index";
     }
 
-    @RequestMapping("/{articleId}")
+    @RequestMapping("/detail/{articleId}")
     public String ArticleDetail(Model model, @PathVariable("articleId") int articleId){
             Article article = articleService.articleDetail(articleId);
             if(article==null){
